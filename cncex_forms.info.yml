@@ -1,0 +1,5 @@
+name: CNCEX Forms
+type: module
+description: 'Custom Form Modifications'
+core: 8.x
+package: SN Custom
