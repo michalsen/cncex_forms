@@ -1,11 +1,13 @@
 <?php
 /**
  *  @file
- *  PNT Class
+ *  Taxonomy View Filter Dropdown
+ *  Content/Format change
  */
 
 use \Drupal\Core\Form\FormStateInterface;
 use Drupal\taxonomy\Entity\Term;
+
 
 /**
  *  Implements hook_form_alter()
@@ -40,24 +42,22 @@ function cncex_views_form_alter(&$form, $form_state, $form_id) {
   if ($form['#id'] == 'views-exposed-form-filter-manufacturer-default' ||
       $form['#id'] == 'views-exposed-form-filter-all-inventory-default') {
 
-      $query = db_select('node__field_manufacturer', 'm')
-                      ->fields('m', array('field_manufacturer_value'))
-                      ->orderBy('field_manufacturer_value', 'ASC')
-                      ->execute()
-                      ->fetchAll();
+        $query = db_select('node__field_manufacturer', 'm')
+          ->fields('m', array('field_manufacturer_value'))
+          ->orderBy('field_manufacturer_value', 'ASC')
+          ->execute()
+          ->fetchAll();
 
-    $options['All'] = '- Manufacturer -';
-    foreach ($query as $key => $value) {
-      $options[$value->field_manufacturer_value] = $value->field_manufacturer_value;
-    }
+        $options['All'] = '- Manufacturer -';
+        foreach ($query as $key => $value) {
+          $options[$value->field_manufacturer_value] = $value->field_manufacturer_value;
+        }
 
-
-    $form['field_manufacturer_value'] = [
-       '#type' => 'select',
-       '#options' => $options,
-       '#validated' => TRUE
-    ];
-
+        $form['field_manufacturer_value'] = [
+           '#type' => 'select',
+           '#options' => $options,
+           '#validated' => TRUE
+        ];
     return $form;
   }
 

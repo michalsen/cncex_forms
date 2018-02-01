@@ -1,5 +1,5 @@
-name: CNCEX Forms
+name: Taxonomy View Filter Dropdown
 type: module
-description: 'Custom Form Modifications'
+description: 'Dropdown taxonomy content formatting.'
 core: 8.x
-package: SN Custom
+package: Custom Code
